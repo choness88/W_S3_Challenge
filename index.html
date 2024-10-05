@@ -18,7 +18,6 @@
     .widget p {
       font-style: italic;
     }
-
   </style>
 </head>
 
@@ -36,7 +35,7 @@
   <!-- widgets end -->
 
   <!-- The first script tag loads a library called lodash that helps with testing -->
-  <script src="https://cdnjs.cloudflare.c om/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
   <script id="challenge">
     // In CHALLENGES 1-4 you will write JavaScript classes
 
@@ -59,8 +58,41 @@
       // ❗ WARNING: except for `getAllReversed`, methods must respect the order of the integers
       // ❗ WARNING: note that except for push and pop, the methods don't change the `ints` property
 
-      constructor(a, b, c, d) {
+      constructor(...ints) {
+        this.ints = ints
+      }
 
+      getAll() {
+        return this.ints
+      }
+
+      getEvens() {
+        return this.ints.filter(int => int % 2 === 0)
+      }
+
+      getNegatives() {
+        return this.ints.filter(int => int < 0)
+      }
+
+      getAllSquared() {
+        return this.ints.map(int => int * int)
+      }
+
+      pop() {
+        return this.ints.pop()
+      }
+
+      push(int) {
+        this.ints.push(int)
+        return this.ints
+      }
+
+      getEveryNth(n) {
+        return this.ints.filter((_, index) => index % n === 0)
+      }
+
+      getAllReversed() {
+        return [...this.ints].reverse()
       }
 
     }
@@ -81,6 +113,31 @@
       //      * When engaging the safety, return "Safety enabled!"
       //      * When disengaging the safety, return "Safety disabled!"
       // 🌟 HINT: instances need to keep track of their maximum capacity as well as their current capacity
+
+      constructor(totalProjectiles) {
+        this.totalProjectiles = totalProjectiles;
+        this.currentCapacity = totalProjectiles;
+        this.safety = true;
+
+      }
+
+      shoot() {
+        this.safety = true
+        return "Click!"
+
+        this.currentCapacity > 0 
+        return "Bang!"
+
+      }
+
+      reload() {
+
+      }
+
+      toggleSafety() {
+
+      }
+
 
     }
 
