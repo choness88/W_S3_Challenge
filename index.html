@@ -122,20 +122,15 @@
       }
 
       shoot() {
-        let result = "action"
 
-        if (this.safety === true || this.currentCapacity <= 0) {
-          result = "Click!"
-        }
-
-        else if (this.currentCapacity > 0 && this.safety === false) {
+        if (this.currentCapacity > 0 && this.safety === false) {
           this.currentCapacity -= 1
-          result = "Bang!"
+          return "Bang!"
         }
 
-        return result
+        return "Click!"
       }
-      
+
 
       reload(num) {
         if (num <= 0) { return "Error reloading!" }
@@ -145,7 +140,7 @@
         }
 
         else if (this.currentCapacity < this.totalProjectiles) {
-          this.totalProjectiles = this.currentCapacity + num
+          this.currentCapacity = this.totalProjectiles + num
         }
 
       }
